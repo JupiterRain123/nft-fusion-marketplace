@@ -1,0 +1,18 @@
+# Build artifacts
+target/
+node_modules/
+.anchor
+**/*.rs.bk
+dist/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
