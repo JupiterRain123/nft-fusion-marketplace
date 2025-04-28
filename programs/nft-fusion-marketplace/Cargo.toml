@@ -1,0 +1,26 @@
+[package]
+name = "nft-fusion-marketplace"
+version = "0.1.0"
+description = "NFT Fusion Marketplace - A decentralized token/NFT fusion marketplace on Solana"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "nft_fusion_marketplace"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = { version = "0.24.2", features = ["init-if-needed"] }
+anchor-spl = "0.24.2"
+solana-program = "=1.9.29"
+spl-token = { version = "3.2.0", features = ["no-entrypoint"] }
+spl-associated-token-account = { version = "1.0.5", features = ["no-entrypoint"] }
+mpl-token-metadata = { version = "1.2.7", features = ["no-entrypoint"] }
+pyth-sdk-solana = "0.4.0"
+thiserror = "1.0.30"
