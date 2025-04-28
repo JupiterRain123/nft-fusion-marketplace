@@ -1,0 +1,45 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+nft_fusion_marketplace = "7wVDyMSQrpDp7HaAie3Cby9LnqbXyAJeMtGwQyKZ59ES"
+
+[programs.devnet]
+nft_fusion_marketplace = "7wVDyMSQrpDp7HaAie3Cby9LnqbXyAJeMtGwQyKZ59ES"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "./deploy/keypairs/wallet-keypair.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+deploy = "anchor deploy --program-keypair deploy/keypairs/nft_fusion_marketplace-keypair.json"
+
+[test]
+startup_wait = 10000
+
+[test.validator]
+url = "https://api.devnet.solana.com"
+
+# Add additional program dependencies for testing
+[[test.validator.clone]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"  # Token Metadata Program
+
+[[test.validator.clone]]
+address = "BGUMAp9Gq7iTEuizy4pqaxsTyUCBK68MDfK752saRPUY"  # Bubblegum Program for compressed NFTs
+
+[[test.validator.clone]]
+address = "gSbePebfvPy7tRqimPoVecS2UsBvYv46ynrzWocc92s"  # State Compression Program
+
+[[test.validator.clone]]
+address = "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"  # Associated Token Account Program
+
+[[test.validator.clone]]
+address = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"  # Token Program
+
+[[test.validator.clone]]
+address = "FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH"  # Pyth Oracle Program
